@@ -124,21 +124,22 @@ body{
 /* intento de animacion */
 
 @keyframes aminDesplazamiento {
-    0%, 100% { transform:  rotate(0deg) translateX(-50);}
-
-
-    50% { transform: rotate(360deg) translateX(50);}
+    0%, 100% { 
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% { 
+        transform: translateX(50%) rotate(360deg);
+    }
 }
 
 .forma {
     position: absolute;
     left: 50%;
-    bottom: 10px;           /* Lo coloca en la parte inferior */
-    align-content: center;           
+    bottom: 10px;
     opacity: 0.1;
-    z-index: -1;        
+    z-index: -1;
     animation: aminDesplazamiento 280s linear infinite;
-    transform: translateX(-50%);
+    /* La transformación inicial ahora está dentro de la animación (keyframes 0%) */
 }
 
 
