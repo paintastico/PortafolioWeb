@@ -45,3 +45,34 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.querySelector('.custom-cursor');
+  
+  // Activar cursor personalizado
+  document.documentElement.classList.add('hide-native-cursor');
+  
+  // Seguir movimiento del mouse
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+  
+  // Efecto al pasar sobre elementos interactivos
+  const interactiveElements = document.querySelectorAll('a, button, [data-cursor-hover]');
+  
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+      cursor.style.backgroundColor = 'black';
+      cursor.style.borderColor = 'white';
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursor.style.backgroundColor = 'white';
+      cursor.style.borderColor = 'black';
+    });
+  });
+});
