@@ -1,0 +1,171 @@
+
+h1 {
+    color: rgb(0, 0, 0);
+}
+h2 {
+    color: rgb(54, 54, 54);
+}
+
+body{
+    background-color: rgb(163, 163, 163);
+}
+.contenedorPortada{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    height: 100vh;
+}
+
+@media (max-width: 768px) { /* Ajusta este valor según necesites */
+    .contenedorPortada {
+        margin-top: 70px; /* Ajusta este valor según tu navbar */
+        height: calc(100vh - 70px); /* Opcional: ajusta la altura */
+    }
+}
+
+.supertexto{
+    position: absolute;
+    top: 0;
+    padding: 0 60px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+    font-size: 4rem;
+    font-weight: 20;
+    letter-spacing: 40px;
+    line-height: 16rem;
+    color: rgb(255, 255, 255);
+    opacity: 0.1;
+    z-index: -1; 
+}
+
+.encabezado {
+    margin: 0 auto; 
+    margin-bottom: 10rem;
+    padding: 0 50px;
+    font-family: BlenderPro,sans-serif
+}
+
+.encabezado:last-child {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.formaboton{
+    margin-top: 5%;
+    display: inline-block;  
+    padding: 10px 20px;    
+    
+    background: transparent;
+    border: 2px solid #333; /* Color del borde (cámbialo a tu gusto) */
+    
+    border-radius: 10px;
+    
+    /* Texto y cursor */
+    color: #333;           /* Color del texto */
+    font-family: Arial, sans-serif; /* Fuente */
+    font-weight: bold;     /* Grosor del texto */
+    text-decoration: none; /* Elimina subrayado si es un <a> */
+    cursor: pointer;       /* Cambia el cursor al pasar */
+    
+    transition: all 0.3s ease;
+}
+
+.formaboton:hover {
+    border-color: #ffffff;  /* Cambia color del borde */
+    color: #ffffff;         /* Cambia color del texto */
+    background: rgb(255, 102, 0);
+    transform: scale(1.05); /* Ligero zoom (opcional) */
+}
+
+.paneo{
+    text-size-adjust: 2000px;
+
+
+}
+
+.navbar {
+    background-color: rgb(255, 102, 0) !important;
+  }
+
+
+#duck{
+    
+}
+
+#mi-foto{
+    border: 2px solid #333;
+    
+}
+#mi-foto::before {
+    content: "";
+    position: absolute;
+    top: 100px;  /* Desplazamiento vertical */
+    left: 10px; /* Desplazamiento horizontal */
+    width: 100%;
+    height: 100%;
+    background: #333; /* Color del marco */
+    opacity: 0.7;    /* Transparencia */
+    transition: all 0.3s ease;
+}
+
+#mi-foto:hover{
+    transform: scale(1.1);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+
+
+
+/* intento de animacion */
+
+@keyframes aminDesplazamiento {
+    0%, 100% { transform:  rotate(0deg) translateX(-50);}
+
+
+    50% { transform: rotate(360deg) translateX(50);}
+}
+
+.forma {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;           /* Lo coloca en la parte inferior */
+    align-content: center;           
+    opacity: 0.1;
+    z-index: -1;        
+    animation: aminDesplazamiento 280s linear infinite;
+    transform: translateX(-50%);
+}
+
+
+
+@keyframes Moverfoto {
+    0% { 
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.foto {
+    opacity: 0;
+    transform: translateX(-100%); /* Empieza fuera de pantalla */
+    transition: 
+        opacity 0.5s ease-out,
+        transform 0.5s ease-out;
+    will-change: transform, opacity; /* Mejora rendimiento */
+    margin: 20px 0; /* Espacio entre fotos */
+}
+
+.foto.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
