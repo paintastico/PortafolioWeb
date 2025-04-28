@@ -754,3 +754,44 @@ html.hide-native-cursor .custom-cursor {
     border: 3px solid rgb(255, 102, 0);
     border-radius: 5%;
 }
+
+
+
+
+/*<--ajuste para movil-->*/
+
+/* Añade esto al inicio de tu CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Específico para el problema móvil */
+  @media (max-width: 575.98px) {
+    body, html {
+      width: 100%;
+      overflow-x: hidden; /* Previene scroll horizontal */
+    }
+    
+    .contenedorPortada {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    
+    .encabezado {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    /* Asegura que los elementos hijos no causen desbordamiento */
+    .encabezado > * {
+      max-width: 100%;
+    }
+  }
