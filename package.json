@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "three": "^0.176.0"
+  },
+  "devDependencies": {
+    "vite": "^6.3.3"
+  },
+  "name": "portafolioweb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paintastico/PortafolioWeb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/paintastico/PortafolioWeb/issues"
+  },
+  "homepage": "https://github.com/paintastico/PortafolioWeb#readme",
+  "description": ""
+}
