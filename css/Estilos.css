@@ -295,7 +295,7 @@ html.hide-native-cursor .custom-cursor {
     opacity: 0.9;
     transition: all 0.4s ease;
     border: 3px solid rgb(255, 102, 0);
-    border-radius: 5%;
+    border-radius: 20%;
 }
 /*secciones*/
 
@@ -388,8 +388,8 @@ html.hide-native-cursor .custom-cursor {
         margin-right: 5%;
         font-family: BlenderPro,sans-serif;
         align-items: center;
-        padding-top: 3rem;
-        padding-bottom: 3rem; 
+        padding-top: 4rem;
+        padding-bottom: 4cqb; 
     }
 }
 
@@ -479,14 +479,21 @@ html.hide-native-cursor .custom-cursor {
         transform: translateX(50%) rotate(360deg);
     }
 }
+@keyframes aminDesplazamiento2 {
+    0%, 100% { 
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% { 
+        transform: translateX(50%) rotate(360deg);
+    }
+}
 
 .forma {
     position: absolute;
     left: 100%;
-    bottom: 10px;
     opacity: 0.1;
     z-index: -1;
-    animation: aminDesplazamiento 280s linear infinite;
+    animation: aminDesplazamiento2 280s linear infinite;
 }
 
 @media (min-width: 576px) {
@@ -611,12 +618,57 @@ html.hide-native-cursor .custom-cursor {
 
 #duckb{
     position: absolute;
-    left: 50%;
+    left: 110%;
     bottom: 10px;
     opacity: 0.2;
     animation: aminDesplazamiento 10s linear infinite;
     mix-blend-mode: normal;
 
+}
+
+@media (min-width: 576px) {
+    #duckb{
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        opacity: 0.2;
+        animation: aminDesplazamiento 10s linear infinite;
+        mix-blend-mode: normal;
+    
+    }
+}
+@media (min-width: 768px) {
+    #duckb{
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        opacity: 0.2;
+        animation: aminDesplazamiento 10s linear infinite;
+        mix-blend-mode: normal;
+    
+    }
+}
+@media (min-width: 992px) {
+    #duckb{
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        opacity: 0.2;
+        animation: aminDesplazamiento 10s linear infinite;
+        mix-blend-mode: normal;
+    
+    }
+}
+@media (min-width: 1200px) {
+    #duckb{
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        opacity: 0.2;
+        animation: aminDesplazamiento 10s linear infinite;
+        mix-blend-mode: normal;
+    
+    }
 }
 
 
@@ -684,7 +736,7 @@ html.hide-native-cursor .custom-cursor {
 }
 @media(min-width:1200px){
     .cajas{
-        width: 80%;
+        width: 60%;
         margin-left: auto; /* ¡Estas dos líneas son clave! */
         margin-right: auto;
         display: flex;

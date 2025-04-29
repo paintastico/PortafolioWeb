@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+      cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
       cursor.style.backgroundColor = 'black';
       cursor.style.borderColor = 'white';
     });
