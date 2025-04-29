@@ -6,7 +6,7 @@
     <title>Modelo 3D en Three.js</title>
     <style>
         body { 
-            margin: 0;
+            margin: 0; 
             overflow: hidden;
             font-family: Arial, sans-serif;
         }
@@ -20,27 +20,140 @@
             padding: 20px;
             border-radius: 5px;
             text-align: center;
+            z-index: 100;
         }
         #retry-btn {
             margin-top: 10px;
-            padding: 5px 10px;
+            padding: 8px 16px;
             background: #4285f4;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div id="loading">Cargando modelo 3D...</div>
-    
-    <!-- Carga Three.js y sus complementos desde CDN -->
+    <div id="loading">Cargando Three.js...</div>
+    <div id="canvas-container"></div>
+
+    <!-- Cargamos Three.js y sus dependencias manualmente -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/loaders/GLTFLoader.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/controls/OrbitControls.min.js"></script>
-    
-    <!-- Tu archivo JavaScript -->
-    <script src="main2.js"></script>
+
+    <!-- Nuestro código -->
+    <script>
+    // Esperamos a que todo esté cargado
+    window.addEventListener('load', function() {
+        const loadingElement = document.getElementById('loading');
+        
+        try {
+            // 1. Verificar que THREE esté disponible
+            if (!window.THREE) {
+                throw new Error("Three.js no se cargó correctamente");
+            }
+            
+            loadingElement.textContent = "Inicializando escena...";
+            
+            // 2. Configuración básica
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x333333);
+            
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+            
+            // 3. Controles
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            
+            // 4. Luces
+            const ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            directionalLight.position.set(1, 1, 1);
+            scene.add(directionalLight);
+            
+            // 5. Cargar modelo
+            loadingElement.textContent = "Cargando modelo...";
+            
+            const loader = new THREE.GLTFLoader();
+            const modelPath = './models/orange.glb'; // Ruta relativa
+            
+            // Timeout para carga
+            const loadTimeout = setTimeout(() => {
+                loadingElement.innerHTML = `
+                    <div style="color: #ff4444;">Tiempo de espera agotado</div>
+                    <div>El modelo está tardando demasiado en cargar</div>
+                    <button id="retry-btn" onclick="window.location.reload()">Reintentar</button>
+                `;
+            }, 15000);
+            
+            loader.load(
+                modelPath,
+                function(gltf) {
+                    clearTimeout(loadTimeout);
+                    
+                    const model = gltf.scene;
+                    scene.add(model);
+                    loadingElement.style.display = 'none';
+                    
+                    // Ajustar cámara
+                    const box = new THREE.Box3().setFromObject(model);
+                    const center = box.getCenter(new THREE.Vector3());
+                    const size = box.getSize(new THREE.Vector3()).length();
+                    
+                    camera.position.copy(center);
+                    camera.position.z = size * 1.5;
+                    controls.target.copy(center);
+                    controls.update();
+                },
+                function(xhr) {
+                    const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+                    loadingElement.textContent = `Cargando modelo... ${percent}%`;
+                },
+                function(error) {
+                    clearTimeout(loadTimeout);
+                    loadingElement.innerHTML = `
+                        <div style="color: #ff4444;">Error al cargar el modelo</div>
+                        <div>${error.message}</div>
+                        <button id="retry-btn" onclick="window.location.reload()">Reintentar</button>
+                    `;
+                    console.error(error);
+                }
+            );
+            
+            // 6. Animación
+            function animate() {
+                requestAnimationFrame(animate);
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animate();
+            
+            // 7. Redimensionamiento
+            window.addEventListener('resize', function() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+            
+        } catch (error) {
+            loadingElement.innerHTML = `
+                <div style="color: #ff4444;">Error crítico</div>
+                <div>${error.message}</div>
+                <button id="retry-btn" onclick="window.location.reload()">Reintentar</button>
+            `;
+            console.error(error);
+        }
+    });
+    </script>
 </body>
 </html>
