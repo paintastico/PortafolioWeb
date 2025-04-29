@@ -34,7 +34,7 @@ const loader = new THREE.GLTFLoader();
 const loadingElement = document.getElementById('loading');
 
 loader.load(
-    './models/tu_modelo.glb', // Nota el ./ al inicio
+    './models/orange.glb', // Nota el ./ al inicio
     (gltf) => {
         const model = gltf.scene;
         scene.add(model);
