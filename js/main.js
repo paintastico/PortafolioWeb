@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // 1. Inicializar la escena
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x333333); // Color de fondo
+scene.background = new THREE.Color(0xFFFFFF); // Color de fondo
 
 // 2. Configurar la cámara
 const camera = new THREE.PerspectiveCamera(
@@ -34,12 +34,18 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(1, 1, 1);
 scene.add(directionalLight);
 
+// Intensidad más fuerte en luz ambiental
+ambientLight.intensity = 0.1; 
+
+// Luz direccional un poco más suave
+directionalLight.intensity = 0.1;
+
 // 6. Cargar el modelo 3D
 const loader = new GLTFLoader();
 const loadingElement = document.getElementById('loading');
 
 loader.load(
-    'models/orange.glb', // Ruta a tu archivo .glb o .gltf
+    'models/duck.glb', // Ruta a tu archivo .glb o .gltf
     (gltf) => {
         const model = gltf.scene;
         scene.add(model);

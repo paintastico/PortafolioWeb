@@ -5,6 +5,19 @@
         <meta name="viewport" content="width=device-width">
         <title > Mi portafolio </title> 
 
+        <!-- 3d -->
+
+        <script type="importmap">
+            {
+              "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/"
+              }
+            }
+        </script>
+
+        <!-- 3d -->
+
         <meta name="theme-color" content="#09f"><!-- tema de color -->
         <link rel="icon" type="image/jpg" href="img/images.jpg"> <!-- fav icon -->
 
@@ -39,10 +52,11 @@
             
             <div class="collapse navbar-collapse h-100" id="navbarResponsive">
                 <ul class="navbar-nav mx-auto h-100 align-items-center" >
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href = "#id-inicio"> Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href = "#id-sobre-mi"> Sobre mi</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href = "#id-Tecnologias"> Tecnologias</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href = "#id-Formacion"> Formación</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href = "#id-Portafolio"> portafolio</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href = "#id-Contacto"> Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href = "#id-Portafolio"> Portafolio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href = https://www.linkedin.com/in/felipe-pardo-bugueño/ target="_blank" > Linkedin</a></li>
                 </ul>
             </div>
@@ -50,7 +64,7 @@
         
 
         
-        <div class="contenedorPortada">
+        <div class="contenedorPortada" id="id-inicio">
                    
             <div class="encabezado">
                 <div>
@@ -59,15 +73,23 @@
                   
             </div>
 
-            <div class="encabezado">
+            <div class="encabezado" >
                 <h2>Bienvenido al </h2>
                 <h1 class="destacado"> Felipe Pardo</h1><h2>Analista programador</h2> 
 
                 <div >
                     <a href="/Multimedia/Felipe Pardo - Curriculum.pdf" class="formaboton"> Descargar Mi CV </a>
-                    <a href="./test.html" class="formaboton"> Test page </a>
                     <a href="./demo.html" class="formaboton"> DEMO 3D </a>
-                </div>  
+                    <a href="https://github.com/paintastico"><span class="redes">
+                        <img id="git" with="100" src="img/redes/git.svg">
+                    </span></a>
+                    <a href="https://www.linkedin.com/in/felipe-pardo-bugueño/ "><span class="redes">
+                        <img id="link" with="100" src="img/redes/linkdn.svg">
+                    </span></a>
+                    
+                </div>
+                
+                
                 
             </div>
 
@@ -109,15 +131,17 @@
 
             <div>
                 <img id="duckb" with="100" src="img/pato blkanco.svg">
-            </div>
-
+            </div> 
         </section>
 
 
-        <section class="seccion3">
+        </div>
 
-            <div class="tecnologias">
-                <h2 id="id-sobre-mi" class="destacado"> Tecnologias </h2>
+
+        <section class="seccion3" id="id-Tecnologias">
+
+            <div class="tecnologias" >
+                <h2 id="id-sobre-mi" class="destacado"> Tecnologias y Herramientas </h2>
                 <p > Estas son algunas de las tecnologias de las que he hecho uso a lo largo de mi formacion y carrera profesional</p>
             </div>
 
@@ -165,85 +189,100 @@
                         <p>Office</p>  
                         <img src="img/ico/Office.png" alt="">          
                     </div>
-                    
 
                 </div>
-                
-
-
-            </div>
-
-            
-                    
+    
+            </div>            
         </section>
 
 
+        <section class="bloque" id="id-Formacion">
 
-        <!--formacion-->
+            <h2 id="id-Formacion" class="destacado"> Formación </h2>
 
-
-        <section class="bloque">
-
-            <div>
-                <h2 id="id-Formacion" class="destacado"> Formación </h2>
+            <div class="formacionContent" >
+                
                 <ul class="parrafo">
-                    <li class="List-Item" ><strong>Administración de empresas DUOC UC </strong> </li>
-
-                    <p>
-                        Carrera donde adquirí fundamentos en gestión estratégica, análisis y planificación financiera, desarrollando capacidad para alinear soluciones técnicas con objetivos de negocio.
-
-                                Fortalecí habilidades en trabajo en equipo multidisciplinario y comunicación efectiva para la presentación de informes y proyectos.
-                    </p>
-
-                    <li class="List-Item" id="id-marketing"><strong>Ingenieria en Marketing DUOC UC </strong> </li>
-                    <p class="detalles">Aqui debo poner los años de formacion y cmo estos me permitieron aprender sobre blablabla</p>
+                    <li class="List-Item">
+                        <h3 class="clickable"><strong >Administración de empresas DUOC UC</strong></h3>
+                        <p class="detalles hidden">
+                            Carrera donde adquirí fundamentos en gestión estratégica, análisis y planificación financiera, desarrollando capacidad para alinear soluciones técnicas con objetivos de negocio. Fortalecí habilidades en trabajo en equipo multidisciplinario y comunicación efectiva para la presentación de informes y proyectos.
+                        </p>
+                    </li>
 
 
-                    <li class="List-Item"><strong>Analista programador DUOC UC </strong> </li>
-                    <p class="detalles">Aqui debo poner los años de formacion y cmo estos me permitieron aprender sobre blablabla</p>
+                    <li class="List-Item">
+                        <h3 class="clickable"><strong >Ingenieria en Marketing DUOC UC</strong></h3>
+                        <p class="detalles hidden">
+                            Durante esta carrera fortalecí mi pensamiento estructurado, el trabajo en equipos multidisciplinarios y la capacidad para diseñar estrategias centradas en el usuario. Exploré la creatividad como herramienta clave para generar soluciones atractivas y efectivas, adquiriendo conocimientos en diseño visual y experiencia de usuario (UX) aplicados al mundo digital. Esta formación me permite comunicar ideas con claridad y comprender mejor las necesidades del mercado.
+                        </p>
+                    </li>
+
+                    <li class="List-Item">
+                        <h3 class="clickable"><strong >Analista programador DUOC UC</strong></h3>
+                        <p class="detalles hidden">
+                            Carrera enfocada en el desarrollo de software, resolución de problemas mediante lógica y construcción de soluciones técnicas funcionales. Aprendí a trabajar con lenguajes de programación, bases de datos, flujos ETL y aplicaciones móviles, desarrollando sistemas que conectan con las necesidades reales de los usuarios. Esta misma página web es un ejemplo práctico de lo aprendido, combinando desarrollo frontend y backend con visión estratégica.
+                        </p>
+                    </li>
+
                 </ul>
             </div>
                     
         </section>
 
 
-        
 
 
-        <section class="seccion" id="id-Portafolio" >
-            <div>
+    
+
+        <section class="bloque-portafolio"  >
+            <div id="id-Portafolio">
                 <h2> Portafolio: </h2>
                 <h3> Lista de proyectos personales</h3>
 
             </div>
 
-            <div>
-                <img class="foto" loading= "lazy" src="img/portafolio1.jpg">
-                <h3> Aqui pondria todos mis proyectos </h3>
+            <div class="port-items">
+                <div class="port-group">
+                    <div class="port-item">
+                        <p>Aqui pondria todos mis proyectos</p>  
+                        <img src="img/portafolio1.jpg" alt="">
+                                          
+                    </div>
+                    <div class="port-item">
+                        <p>Si tuviera alguno</p>  
+                        <img src="img/portafolio2.jpg" alt="">
+                                          
+                    </div>
+                    <div class="port-item">
+                        <p>Aqui pondria todos mis proyectos</p>  
+                        <img src="img/portafolio1.jpg" alt="">
+                                          
+                    </div>
+                    <div class="port-item">
+                        <p>Si tuviera alguno</p>  
+                        <img src="img/portafolio2.jpg" alt="">
+                                          
+                    </div>
 
-                <img class="foto" loading= "lazy" src="img/portafolio2.jpg">
-                <h3> <strong>Si tuviera alguno</strong> </h3>
+                </div>
+
+
+                
             </div>
             
 
         </section>  
         
         
-        <footer>
-            <p id="id-Contacto"> <strong> Contactame: </strong> </p>
-
-            <a href="mailto:felipesebastianpardo@gmail.com" target="_blank" > Mandame un correo</a>
-            <a href="tel:+56989987063" target="_blank" > Llame a mi celular</a>
-            <a href="https://www.linkedin.com/in/felipe-pardo-bugue%C3%B1o/" > Linkedin</a>
-            <a href="whatsapp://send?phone=56989987063" target="_blank" > WhatsApp</a>
-
-        </footer>
+    
 
 
 
 
 
         <script src="js/animacion.js" defer></script>
+        <script type="module" src="js/main.js"></script>
 
 
         <!-- jQuery (necesario para Bootstrap 5) -->

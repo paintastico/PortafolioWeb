@@ -76,3 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.querySelectorAll('.clickable').forEach(item => {
+    item.addEventListener('click', () => {
+        const detalles = item.nextElementSibling;
+        detalles.classList.toggle('visible');
+        
+        // Cierra los demás detalles si se abre uno nuevo (opcional)
+        document.querySelectorAll('.detalles').forEach(d => {
+            if (d !== detalles && d.classList.contains('visible')) {
+                d.classList.remove('visible');
+            }
+        });
+    });
+});
