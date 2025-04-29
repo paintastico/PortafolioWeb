@@ -45,7 +45,7 @@ const loader = new GLTFLoader();
 const loadingElement = document.getElementById('loading');
 
 loader.load(
-    'models/dark.glb', // Ruta a tu archivo .glb o .gltf
+    'models/cap.glb', // Ruta a tu archivo .glb o .gltf
     (gltf) => {
         const model = gltf.scene;
         scene.add(model);
