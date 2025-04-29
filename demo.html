@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelo 3D en Three.js</title>
     <style>
-        body { margin: 0; }
+        body { 
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
         #loading {
             position: absolute;
             top: 50%;
@@ -15,17 +19,28 @@
             background: rgba(0,0,0,0.7);
             padding: 20px;
             border-radius: 5px;
+            text-align: center;
+        }
+        #retry-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div id="loading">Cargando modelo 3D...</div>
     
-    <!-- Cambia el script type="module" por esto: -->
+    <!-- Carga Three.js y sus complementos desde CDN -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/loaders/GLTFLoader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/controls/OrbitControls.min.js"></script>
     
+    <!-- Tu archivo JavaScript -->
     <script src="main2.js"></script>
 </body>
 </html>
